@@ -1,9 +1,10 @@
-var miCarrito = [];
+miCarrito = [];
+miDireccion = "";
+
 let miNombre = prompt("Ingresa tu nombre");
 if (miNombre == null || miNombre == "") {
     miNombre = "Usuario Anónimo";
 }
-var miDireccion = "";
 
 let validarDireccion = true;
 do {
