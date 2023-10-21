@@ -6,15 +6,18 @@ if (miNombre == null || miNombre == "") {
     miNombre = "Usuario Anónimo";
 }
 
+
 let validarDireccion = true;
 do {
     let miDireccion = prompt("Ingresa tu dirección de envio");
     if (miDireccion.length <= 9) {
         alert("Ingresa un dirección de minimo 10 caracteres")
     } else if (miDireccion.length >= 10) {
+        dirEntrega = miDireccion;
         break;
     }
 } while (validarDireccion == true);
+
 
 function calcularImpuesto(valorBase, impPaisMxIva = 0.16) {
     let impuestos = valorBase * impPaisMxIva;
@@ -56,7 +59,7 @@ do {
     do {
         let respuesta = prompt("¿Desea ingresar otro producto? escriba SI, o NO para terminar con su compra.");
         if (validarRespuesta(respuesta, "no") == "no") {
-            alert(`${miNombre} compraste ${miCarrito.length} producto's y el total de tu compra es de: ${suma} MXN y tu pedido se enviara a ${miDireccion} Gracias por tu compra!`);
+            alert(`${miNombre} compraste ${miCarrito.length} producto's y el total de tu compra es de: ${suma} MXN y tu pedido se enviara a ${dirEntrega} Gracias por tu compra!`);
             resp = false;
             confirmacion = false;
             break
