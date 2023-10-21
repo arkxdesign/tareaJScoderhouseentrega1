@@ -8,7 +8,7 @@ if (miNombre == null || miNombre == "") {
 
 let validarDireccion = true;
 do {
-    var miDireccion = prompt("Ingresa tu dirección de envio");
+    let miDireccion = prompt("Ingresa tu dirección de envio");
     if (miDireccion.length <= 9) {
         alert("Ingresa un dirección de minimo 10 caracteres")
     } else if (miDireccion.length >= 10) {
@@ -31,19 +31,23 @@ function validarRespuesta(texto, textoValidar) {
 let confirmacion = true;
 do {
 
-    let valorProducto
+    let valorProducto = true
     do {
         valorProducto = parseFloat(prompt("Ingrese el valor del producto adquirido"))
         if (isNaN(valorProducto) == true) {
-            alert("Solo se permiten numeros")
+            alert("Solo se permiten numeros positivos")
+            valorProducto = true;
+        } else if (valorProducto <= 1) {
+            alert("Solo se permiten numeros positivos")
+            valorProducto = true;
         }
-    } while (isNaN(valorProducto) == true)
+    } while (valorProducto == true)
 
     let costoTotal = calcularImpuesto(valorProducto);
     alert("El costo con impuesto es de: " + costoTotal + "MXN");
 
     miCarrito.push(costoTotal);
-    var suma = 0;
+    let suma = 0;
     for (i = 0; i < miCarrito.length; i++) {
         suma += miCarrito[i];
     }
